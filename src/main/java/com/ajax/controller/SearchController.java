@@ -38,7 +38,7 @@ public class SearchController {
             return ResponseEntity.badRequest().body(result);
         }
 
-//        List<User> users = userService.find
+        List<User> users = userService.findByUserNameOrEmail(search.getUsername());
 
         return ResponseEntity.ok(result);
     }
