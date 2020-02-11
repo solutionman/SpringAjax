@@ -29,7 +29,17 @@ public class SearchController {
 
         AjaxResponseBody result = new AjaxResponseBody();
 
+        if(errors.hasErrors()){
+            result.setMsg(errors.getAllErrors()
+            .stream().map(x -> x.getDefaultMessage())
+            .collect(Collectors.joining(",")));
+
+            return ResponseEntity.badRequest().body(result);
+        }
 
         return ResponseEntity.ok(result);
     }
 }
+
+
+
