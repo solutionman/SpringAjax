@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotBlank;
 @Data
 public class SearchCriteria {
 
-    @NotBlank(message = "username can't be empty")
+    @NotBlank(message = "username can't empty!")
     String username;
+
 }

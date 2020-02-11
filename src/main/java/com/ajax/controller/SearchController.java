@@ -21,33 +21,34 @@ public class SearchController {
     UserService userService;
 
     @Autowired
-    public void setUserService(UserService userService){
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
     @PostMapping("/api/search")
-    public ResponseEntity<?> getSearchResultVaAjax(@Valid @RequestBody SearchCriteria search, Errors errors){
+    public ResponseEntity<?> getSearchResultViaAjax(@Valid @RequestBody SearchCriteria search, Errors errors) {
 
         AjaxResponseBody result = new AjaxResponseBody();
 
-        if(errors.hasErrors()){
-            result.setMsg(errors.getAllErrors()
-            .stream().map(x -> x.getDefaultMessage())
-            .collect(Collectors.joining(",")));
+        if (errors.hasErrors()) {
 
+            result.setMsg(errors.getAllErrors().stream().map(x -> x.getDefaultMessage()).collect(Collectors.joining(",")));
             return ResponseEntity.badRequest().body(result);
+
         }
 
         List<User> users = userService.findByUserNameOrEmail(search.getUsername());
-        if(users.isEmpty()){
+        if (users.isEmpty()) {
             result.setMsg("no user found!");
         } else {
             result.setMsg("success");
         }
+        result.setResult(users);
 
         return ResponseEntity.ok(result);
-    }
-}
 
+    }
+
+}
 
 
