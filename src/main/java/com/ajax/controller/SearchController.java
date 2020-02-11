@@ -2,6 +2,7 @@ package com.ajax.controller;
 
 import com.ajax.model.AjaxResponseBody;
 import com.ajax.model.SearchCriteria;
+import com.ajax.model.User;
 import com.ajax.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,8 @@ public class SearchController {
 
             return ResponseEntity.badRequest().body(result);
         }
+
+//        List<User> users = userService.find
 
         return ResponseEntity.ok(result);
     }
