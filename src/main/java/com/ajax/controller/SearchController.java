@@ -39,6 +39,11 @@ public class SearchController {
         }
 
         List<User> users = userService.findByUserNameOrEmail(search.getUsername());
+        if(users.isEmpty()){
+            result.setMsg("no user found!");
+        } else {
+            result.setMsg("success");
+        }
 
         return ResponseEntity.ok(result);
     }
