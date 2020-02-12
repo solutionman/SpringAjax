@@ -55,6 +55,7 @@ public class SearchController {
         Address address = new Address();
         address.setHouse("45/1");
         address.setStreet(search.getSearching());
+        address.setFlat("25");
 
         return ResponseEntity.ok(address);
     }

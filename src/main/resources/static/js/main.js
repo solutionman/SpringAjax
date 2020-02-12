@@ -1,12 +1,9 @@
 $(document).ready(function () {
 
     $("#search-form").submit(function (event) {
-
         //stop submit the form, we will post it manually.
         event.preventDefault();
-
         fire_ajax_submit();
-
     });
 
     $("#search-address-form").submit(function (event) {
@@ -82,6 +79,9 @@ function ajax_set_address() {
 
             var resultHouse = (data.house);
             $('#show-house').html(resultHouse);
+
+            var flat = (data.flat);
+            $('#show-flat').html(flat);
 
             console.log("SUCCESS : ", data);
             $("#btn-address-search").prop("disabled", false);
