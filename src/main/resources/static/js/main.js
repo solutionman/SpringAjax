@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     $("#search-address-form").submit(function (event) {
         event.preventDefault();
-        ajax_search_address();
+        ajax_set_address();
     })
 
 });
@@ -55,7 +55,7 @@ function fire_ajax_submit() {
 
 }
 
-function ajax_search_address() {
+function ajax_set_address() {
     var search = {};
     search["searching"] = $('#address').val();
     $("#btn-address-search").prop("disabled", true);
@@ -70,7 +70,7 @@ function ajax_search_address() {
         timeout: 600000,
         success: function (data) {
 
-            var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
+            var json = "<h4>Response from backend:</h4>&lt;pre&gt;"
                 + JSON.stringify(data, null, 4) + "&lt;/pre&gt;";
             $('#feedback-address').html(json);
 
@@ -84,16 +84,6 @@ function ajax_search_address() {
             $('#show-house').html(resultHouse);
 
             console.log("SUCCESS : ", data);
-            $("#btn-address-search").prop("disabled", false);
-
-        },
-        error: function (e) {
-
-            var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
-                + e.responseText + "&lt;/pre&gt;";
-            $('#feedback-address').html(json);
-
-            console.log("ERROR : ", e);
             $("#btn-address-search").prop("disabled", false);
 
         }
