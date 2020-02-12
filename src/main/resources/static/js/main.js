@@ -57,7 +57,7 @@ function fire_ajax_submit() {
 
 function ajax_search_address() {
     var search = {};
-    search["address"] = $('#address').val();
+    search["searching"] = $('#address').val();
     $("#btn-address-search").prop("disabled", true);
 
     $.ajax({

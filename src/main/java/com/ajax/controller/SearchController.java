@@ -1,9 +1,6 @@
 package com.ajax.controller;
 
-import com.ajax.model.Address;
-import com.ajax.model.AjaxResponseBody;
-import com.ajax.model.SearchCriteria;
-import com.ajax.model.User;
+import com.ajax.model.*;
 import com.ajax.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
@@ -53,9 +50,11 @@ public class SearchController {
     }
 
     @PostMapping("/address/search")
-    public ResponseEntity<?> searchMail(@Valid @RequestBody SearchCriteria search, Errors errors){
+    public ResponseEntity<?> searchMail(@Valid @RequestBody SearchAddress search, Errors errors){
+
         Address address = new Address();
-        address.setStreet("someAddress");
+        address.setHouse("someHouse");
+        address.setStreet(search.getSearching());
 
         return ResponseEntity.ok(address);
     }
