@@ -72,7 +72,7 @@ function ajax_search_address() {
 
             var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
                 + JSON.stringify(data, null, 4) + "&lt;/pre&gt;";
-            $('#feedback').html(json);
+            $('#feedback-address').html(json);
 
             console.log("SUCCESS : ", data);
             $("#btn-search").prop("disabled", false);
@@ -82,7 +82,7 @@ function ajax_search_address() {
 
             var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
                 + e.responseText + "&lt;/pre&gt;";
-            $('#feedback').html(json);
+            $('#feedback-address').html(json);
 
             console.log("ERROR : ", e);
             $("#btn-search").prop("disabled", false);
