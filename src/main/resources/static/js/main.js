@@ -77,8 +77,11 @@ function ajax_search_address() {
             var result = JSON.stringify(data);
             $('#another-feedback-address').html(result);
 
-            var resultAddress = (data.street);
-            $('#object-address').html(resultAddress);
+            var resultStreet = (data.street);
+            $('#show-street').html(resultStreet);
+
+            var resultHouse = (data.house);
+            $('#show-house').html(resultHouse);
 
             console.log("SUCCESS : ", data);
             $("#btn-address-search").prop("disabled", false);

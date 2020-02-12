@@ -53,7 +53,7 @@ public class SearchController {
     public ResponseEntity<?> searchMail(@Valid @RequestBody SearchAddress search, Errors errors){
 
         Address address = new Address();
-        address.setHouse("someHouse");
+        address.setHouse("45/1");
         address.setStreet(search.getSearching());
 
         return ResponseEntity.ok(address);
