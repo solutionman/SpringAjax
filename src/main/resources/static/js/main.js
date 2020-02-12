@@ -67,13 +67,6 @@ function ajax_set_address() {
         timeout: 600000,
         success: function (data) {
 
-            var json = "<h4>Response from backend:</h4>&lt;pre&gt;"
-                + JSON.stringify(data, null, 4) + "&lt;/pre&gt;";
-            $('#feedback-address').html(json);
-
-            var result = JSON.stringify(data);
-            $('#another-feedback-address').html(result);
-
             var resultStreet = (data.street);
             $('#show-street').html(resultStreet);
 
@@ -86,6 +79,11 @@ function ajax_set_address() {
             console.log("SUCCESS : ", data);
             $("#btn-address-search").prop("disabled", false);
 
+        },
+        error: function (e) {
+            console.log("ERROR : ", e);
+            $("#btn-address-search").prop("disabled", false);
         }
+
     });
 }
