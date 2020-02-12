@@ -1,5 +1,6 @@
 package com.ajax.controller;
 
+import com.ajax.model.Address;
 import com.ajax.model.AjaxResponseBody;
 import com.ajax.model.SearchCriteria;
 import com.ajax.model.User;
@@ -49,6 +50,14 @@ public class SearchController {
 
         return ResponseEntity.ok(result);
 
+    }
+
+    @PostMapping("/address/search")
+    public ResponseEntity<?> searchMail(@Valid @RequestBody SearchCriteria search, Errors errors){
+        Address address = new Address();
+        address.setStreet("someAddress");
+
+        return ResponseEntity.ok(address);
     }
 
 }
