@@ -50,7 +50,7 @@ public class SearchController {
     }
 
     @PostMapping("/address/search")
-    public ResponseEntity<?> searchMail(@Valid @RequestBody SearchAddress search, Errors errors){
+    public ResponseEntity<?> setAddress(@Valid @RequestBody SearchAddress search, Errors errors){
 
         Address address = new Address();
         address.setHouse("45/1");
