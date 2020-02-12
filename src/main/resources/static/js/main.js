@@ -75,7 +75,7 @@ function ajax_search_address() {
             $('#feedback-address').html(json);
 
             console.log("SUCCESS : ", data);
-            $("#btn-search").prop("disabled", false);
+            $("#btn-address-search").prop("disabled", false);
 
         },
         error: function (e) {
@@ -85,7 +85,7 @@ function ajax_search_address() {
             $('#feedback-address').html(json);
 
             console.log("ERROR : ", e);
-            $("#btn-search").prop("disabled", false);
+            $("#btn-address-search").prop("disabled", false);
 
         }
     });
