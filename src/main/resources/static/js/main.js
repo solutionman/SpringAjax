@@ -9,6 +9,11 @@ $(document).ready(function () {
 
     });
 
+    $("#search-mail-form").submit(function (event) {
+        event.preventDefault();
+        ajax_search_email();
+    })
+
 });
 
 function fire_ajax_submit() {
@@ -47,5 +52,9 @@ function fire_ajax_submit() {
 
         }
     });
+
+}
+
+function ajax_search_email() {
 
 }
